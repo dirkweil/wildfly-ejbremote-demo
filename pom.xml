@@ -18,6 +18,10 @@
   </build>
 
   <properties>
+    <!-- 
+    <wildfly.version>8.0.0.CR1</wildfly.version>
+     -->
+    <wildfly.version>8.1.0.Final</wildfly.version>
     <checkstyle.config>GEDOPLAN</checkstyle.config>
   </properties>
 
@@ -52,7 +56,7 @@
     <dependency>
       <groupId>org.wildfly</groupId>
       <artifactId>wildfly-ejb-client-bom</artifactId>
-      <version>8.0.0.CR1</version>
+      <version>${wildfly.version}</version>
       <type>pom</type>
       <scope>test</scope>
     </dependency>
