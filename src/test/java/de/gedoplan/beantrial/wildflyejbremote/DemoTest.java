@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import java.rmi.RemoteException;
 import java.util.Properties;
 
+import javax.ejb.EJBAccessException;
 import javax.ejb.EJBException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -58,6 +59,13 @@ public class DemoTest
   {
     this.expectedException.expect(exceptionRootIs(UnsupportedOperationException.class));
     this.demo.getException();
+  }
+
+  @Test
+  public void testRestrictedMethod() throws Exception
+  {
+    this.expectedException.expect(exceptionRootIs(EJBAccessException.class));
+    this.demo.restrictedMethod();
   }
 
   private Matcher<?> exceptionRootIs(final Class<? extends Throwable> rootClass)

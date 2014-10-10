@@ -8,4 +8,7 @@ public interface Demo
   public String getHello();
 
   public void getException();
+
+  public void restrictedMethod();
+
 }
