@@ -1,7 +1,7 @@
 package de.gedoplan.beantrial.wildflyejbremote;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import java.rmi.RemoteException;
 import java.util.Properties;
@@ -75,12 +75,22 @@ public class DemoTest
       @Override
       protected boolean matchesSafely(Throwable exception)
       {
-        while (exception != null && (exception instanceof RemoteException || exception instanceof EJBException))
+        while (exception != null)
         {
+          if (rootClass.isAssignableFrom(exception.getClass()))
+          {
+            return true;
+          }
+
+          if (!(exception instanceof RemoteException || exception instanceof EJBException))
+          {
+            break;
+          }
+
           exception = exception.getCause();
         }
 
-        return exception != null && rootClass.isAssignableFrom(exception.getClass());
+        return false;
       }
     };
   }
