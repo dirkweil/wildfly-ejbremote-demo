@@ -18,10 +18,9 @@
   </build>
 
   <properties>
-    <!-- 
-    <wildfly.version>8.0.0.CR1</wildfly.version>
-     -->
-    <wildfly.version>8.1.0.Final</wildfly.version>
+<!--     <wildfly.version>8.0.0.CR1</wildfly.version> -->
+<!--     <wildfly.version>8.1.0.Final</wildfly.version> -->
+    <wildfly.version>9.0.2.Final</wildfly.version>
     <checkstyle.config>GEDOPLAN</checkstyle.config>
   </properties>
 
